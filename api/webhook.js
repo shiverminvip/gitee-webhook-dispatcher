@@ -2,6 +2,16 @@
 const https = require('https');
 const crypto = require('crypto'); // 用于 Webhook 签名验证（可选）
 
+module.exports = async (req, res) => {
+  // --- 新增：处理 GET 请求用于预热/健康检查 ---
+  if (req.method === 'GET') {
+    // 这行日志可以在 Vercel 后台看到，证明预热请求到达了
+    console.log('Received GET request for pre-warming/health check.');
+    res.status(200).send('Vercel function is active and listening.');
+    return;
+  }
+  // --- 新增结束 ---
+
 // 从 Vercel 环境变量中获取（这些变量将在后面设置）
 const GITHUB_PAT = process.env.GITHUB_PAT;
 const GITHUB_REPO_OWNER = process.env.GITHUB_REPO_OWNER;

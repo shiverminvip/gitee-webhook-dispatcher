@@ -41,14 +41,13 @@ exports.handler = async (event, context) => {
 
     // 4. 检查是否是 'Push Hook' 事件
     const giteeEvent = event.headers['x-gitee-event'];
-    if (giteeEvent !== 'Push Hook') {
-        console.log(`Ignoring Gitee event: ${giteeEvent}`);
-        return {
-            statusCode: 200,
-            body: `Ignoring Gitee event: ${giteeEvent}`
-        };
-    }
-
+    if (giteeEvent !== 'Push Hook' && giteeEvent !== 'push_hooks') {
+    console.log(`Ignoring Gitee event: ${giteeEvent}`);
+    return {
+        statusCode: 200,
+        body: `Ignoring Gitee event: ${giteeEvent}`
+    };
+}
     // 5. 解析 Gitee Payload (Netlify event.body 是字符串)
     let giteePayload;
     try {

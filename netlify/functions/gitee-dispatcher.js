@@ -61,7 +61,13 @@ exports.handler = async (event, context) => {
     }
 
     console.log('Received Gitee push event. Triggering GitHub Actions...');
+const eventTypeToSend = 'gitee_push'; 
 
+// --- 新增日志行：打印出精确的字符串内容、长度和每个字符的 Unicode 码点 ---
+console.log(`DEBUG: Attempting to dispatch GitHub event with type: "${eventTypeToSend}"`);
+console.log(`DEBUG: eventTypeToSend length: ${eventTypeToSend.length}`);
+console.log(`DEBUG: eventTypeToSend char codes: ${Array.from(eventTypeToSend).map(c => c.charCodeAt(0)).join(',')}`);
+// --- 新增日志行结束 ---
     // 6. 准备 GitHub Actions 的 repository_dispatch payload
     const postData = JSON.stringify({
         event_type: 'gitee_push', // 必须匹配 GitHub Actions 工作流中定义的 'types'

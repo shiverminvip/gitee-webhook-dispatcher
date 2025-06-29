@@ -2,7 +2,7 @@
   "name": "gitee-webhook-dispatcher",
   "version": "1.0.0",
   "description": "A Vercel function to dispatch Gitee webhooks to GitHub Actions.",
-  "main": "api/webhook.js",   <-- 这一行很重要，指向 api/webhook.js
+  "main": "api/webhook.js",
   "scripts": {
     "start": "node api/webhook.js"
   },
@@ -12,6 +12,6 @@
     "github-actions",
     "webhook"
   ],
-  "author": "Feng",
+  "author": "Your Name",
   "license": "MIT"
 }

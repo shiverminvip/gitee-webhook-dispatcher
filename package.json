@@ -2,10 +2,6 @@
   "name": "gitee-webhook-dispatcher-netlify",
   "version": "1.0.0",
   "description": "A Netlify function to dispatch Gitee webhooks to GitHub Actions.",
-  // "main": "api/webhook.js", // 这行可以删除或注释掉
-  // "scripts": {             // 这部分也可以删除或注释掉
-  //   "start": "node api/webhook.js"
-  // },
   "keywords": [
     "netlify",
     "gitee",
